@@ -1,0 +1,50 @@
+@import './variables.scss';
+
+.containers {
+    height: 90%;
+}
+.title-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 15%;
+    float: left;
+}
+
+.title {
+    color: $orange;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    line-height: 30px;
+}
+
+.title mat-icon {
+    width: 50px;
+    height: auto;
+}
+
+
+.chart {
+    width: 100%;
+    height: 100%;
+}
+
+.visualization-options-div {
+    height: 10%;
+}
+
+.form-div {
+    height: 30%;
+}
+
+.chart-div {
+    height: 70%;
+}
+
+
+:host ::ng-deep
+ mat-form-field {
+   width: 15%;
+   margin-right: 5px;
+}

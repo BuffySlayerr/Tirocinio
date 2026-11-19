@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "baseUrl": "./src",
+    "paths": {
+      "@user/*": ["./app/dashboard-user/*"],
+      "@copyshop/*": ["./app/dashboard-copyshop/*"],
+      "@admin/*": ["./app/dashboard-admin/*"],
+      "@services/*": ["./app/services/*"],
+      "@pipes/*": ["./app/pipe/*"],
+      "@interfaces/*": ["./app/interfaces/*"],
+      "@guards/*": ["./app/guards/*"],
+      "@directives/*": ["./app/directives/*"],
+      "@models/*": ["./app/common/models/*"],
+      "@shared/*": ["./app/shared/*"],
+      "@pages/*": ["./app/pages/*"],
+      "@app/*": ["./app/*"],
+      "@env/*": ["./environments/*"]
+    },
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}
+

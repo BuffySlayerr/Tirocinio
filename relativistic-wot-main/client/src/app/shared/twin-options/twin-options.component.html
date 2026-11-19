@@ -1,0 +1,38 @@
+<div class="container-div">
+    <div class="row">
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="createNewDT()">New DT</button>
+        </div>
+        <div class="col-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Twin</mat-label>
+                <mat-select [formControl]="twinsSelect" multiple (selectionChange)="selectChange('twins')">
+                    <mat-option *ngFor="let twin of twinList" [value]="twin">{{ twin }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="reinitializeGraph()">Reset graph</button>
+        </div>
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="run()">{{ isRunning ? 'Stop Run' : 'Run' }}</button>
+        </div>
+        <div class="col-2">
+            <button mat-stroked-button color="primary" (click)="activateLiveReload()">{{ liveReload ? 'Stop live reload' : 'Activate live reload' }}</button>
+        </div>
+        <div class="col-2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Update freq</mat-label>
+                <input matInput placeholder="Ex. Pizza" [(ngModel)]="updateFrequency" (change)="changeUpdateFrequency()">
+              </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Edges</mat-label>
+                <mat-select [formControl]="actionsSelect" multiple (selectionChange)="selectChange('edges')">
+                    <mat-option *ngFor="let action of actionList" [value]="action">{{ action }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

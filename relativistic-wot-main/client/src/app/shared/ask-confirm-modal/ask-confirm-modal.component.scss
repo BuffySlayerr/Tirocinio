@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+.documentTitle {
+    font-style: italic;
+    font-weight: normal;
+    color: black;
+}
+
+.dialogTitle {
+    font-weight: bold;
+}
+
+
+.confirmButton {
+    margin-left: 10px;
+}
+
+.buttons {
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  margin-top: auto
+}
+
+:host ::ng-deep
+.mat-dialog-content {
+  color: white;
+  font-size: 20px;
+}
+

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title class="text-center dialogTitle" *ngIf="!data.delete">Sei sicuro di voler salvare le modifiche?</h1>
+<h1 mat-dialog-title class="text-center dialogTitle" *ngIf="data.delete">Sei sicuro di voler eliminare?</h1>
+<div mat-dialog-content>
+</div>
+<div mat-dialog-actions class="float-right">
+  <button mat-flat-button color="warn" (click)="closeDialog(false)" class="buttons">Annulla</button>
+  <button class="confirmButton buttons" color="primary" mat-stroked-button (click)="closeDialog(true)">Conferma</button>
+</div>

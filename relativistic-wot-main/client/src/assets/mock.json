@@ -1,0 +1,303 @@
+{
+  "result": {
+    "uId": "c633f2bd-b1be-4900-8745-ac170103ea2f",
+    "name": "DNC - Digital Network Construction",
+    "domain": "www.tets.com",
+    "fromDate": "2020-11-03T00:00:00",
+    "toDate": "2020-11-05T00:00:00",
+    "logo": "logo.jpg",
+    "eventsLevels": [
+      {
+        "uId": "07f369c9-e5ef-4547-b871-ac170103ea2f",
+        "level": {
+          "uId": "ead3809c-98bd-4ab1-8642-ac170103ea2e",
+          "name": "Golden"
+        },
+        "event": null
+      },
+      {
+        "uId": "02003a75-514e-41cf-876a-ac170103ea2f",
+        "level": {
+          "uId": "bd4494e1-2181-4519-9f4d-ac170103ea2e",
+          "name": "Silver"
+        },
+        "event": null
+      },
+      {
+        "uId": "0cade2cc-50cb-43af-a441-ac170103ea2f",
+        "level": {
+          "uId": "ad527180-5a3a-4477-9911-ac170103ea2e",
+          "name": "Bronze"
+        },
+        "event": null
+      },
+      {
+        "uId": "75960a36-f7fb-47f5-8949-ac170103ea2f",
+        "level": {
+          "uId": "a8d25b8e-ce06-427a-b055-ac170103ea2e",
+          "name": "Noleggiatore"
+        },
+        "event": null
+      }
+    ],
+    "properties": [
+      {
+        "uId": "7b739671-d58b-43ff-b059-ac170103ea2f",
+        "event": null,
+        "name": "Prop1",
+        "value": "valore 1"
+      },
+      {
+        "uId": "e7a7fdd1-e96a-423a-b856-ac170103ea2f",
+        "event": null,
+        "name": "Prop2",
+        "value": "valore 2"
+      }
+    ],
+    "pavillons": [
+      {
+        "uId": "dc47466a-b807-4ccb-87e0-ac170103ea2f",
+        "eventId": 1,
+        "name": "Pavillon 1",
+        "image": "pavillono1.jpg",
+        "map": "Map 1",
+        "event": null,
+        "pavillonsTags": [
+          {
+            "uId": "fd7f8506-083c-4ce5-afe3-ac170103ea30",
+            "pavillonId": 1,
+            "tagId": 1,
+            "weight": 2,
+            "tag": {
+              "uId": "ad0d6acc-6b30-4c63-8c23-ac170103ea2d",
+              "parent": null,
+              "name": "Sicilia",
+              "tagFamily": "Regioni italiane",
+              "image": "siclia.png",
+              "children": null
+            }
+          },
+          {
+            "uId": "0eba9933-4d4b-464c-a0a5-ac170103ea30",
+            "pavillonId": 1,
+            "tagId": 2,
+            "weight": 1,
+            "tag": {
+              "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+              "parent": null,
+              "name": "Emilia Romagna",
+              "tagFamily": "Regioni italiane",
+              "image": "er.png",
+              "children": null
+            }
+          }
+        ]
+      }
+    ],
+    "exhibitors": [
+      {
+        "uId": "730b7b69-2a90-454b-8dd7-ac170103ea2f",
+        "eventId": 1,
+        "primaryTagId": 0,
+        "name": "Caterpillar",
+        "level": {
+          "uId": "ead3809c-98bd-4ab1-8642-ac170103ea2e",
+          "name": "Golden"
+        },
+        "logo": "turbo.jpg",
+        "event": null,
+        "tags": [
+          {
+            "uId": "ad0d6acc-6b30-4c63-8c23-ac170103ea2d",
+            "parent": null,
+            "name": "Sicilia",
+            "tagFamily": "Regioni italiane",
+            "image": "siclia.png",
+            "children": null
+          }
+        ],
+        "speakers": [
+          {
+            "uId": "2bb1eaea-1852-4c96-afbd-ac170103ea2f"
+          }
+        ],
+        "contacts": null
+      },
+      {
+        "uId": "8ab5cc4d-6295-46fc-aa43-ac170103ea2e",
+        "eventId": 1,
+        "primaryTagId": 0,
+        "name": "Abarth",
+        "legalName": "Societa' privata",
+        "vat": "BE09999999XX",
+        "country": "Italy",
+        "address1": "Via Ugo Bassi 3",
+        "address2": null,
+        "city":	"Bologna",
+        "province": "BO",
+        "postCode": "40130",
+        "companyMail":	"info@abarthcompany.com",
+        "phoneAreaCode": "+39",
+        "phoneNumber": "051234567",
+        "faxNumber":	null,
+        "url": "https://abarthcompany.com",
+        "facebookUrl":	null,
+        "instagramUrl":	null,
+        "linkedinUrl":	null,
+        "twitterUrl":	null,
+        "description": "Lorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratvolutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eroset accumsan et iusto odiodignissim qui blandit praesent",
+        "level": {
+          "uId": "ead3809c-98bd-4ab1-8642-ac170103ea2e",
+          "name": "Golden"
+        },
+        "logo": "turbo.jpg",
+        "event": null,
+        "tags": [
+          {
+            "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+            "parent": null,
+            "name": "Emilia Romagna",
+            "tagFamily": "Regioni italiane",
+            "image": "er.png",
+            "children": null
+          }
+        ],
+        "speakers": null,
+        "contacts": null
+      },
+      {
+        "uId": "8ab5cc4d-6295-46fc-aa43-ac170103ea2z",
+        "eventId": 1,
+        "primaryTagId": 0,
+        "name": "Abarth1",
+        "level": {
+          "uId": "bd4494e1-2181-4519-9f4d-ac170103ea2e",
+          "name": "Silver"
+        },
+        "logo": "turbo.jpg",
+        "event": null,
+        "tags": [
+          {
+            "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+            "parent": null,
+            "name": "Emilia Romagna",
+            "tagFamily": "Regioni italiane",
+            "image": "er.png",
+            "children": null
+          }
+        ],
+        "speakers": null,
+        "contacts": null
+      },
+      {
+        "uId": "8ab5cc4d-6295-46fc-aa43-ac170103ea2t",
+        "eventId": 1,
+        "primaryTagId": 0,
+        "name": "Abarth2",
+        "level": {
+          "uId": "ad527180-5a3a-4477-9911-ac170103ea2e",
+          "name": "Bronze"
+        },
+        "logo": "turbo.jpg",
+        "event": null,
+        "tags": [
+          {
+            "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+            "parent": null,
+            "name": "Emilia Romagna",
+            "tagFamily": "Regioni italiane",
+            "image": "er.png",
+            "children": null
+          }
+        ],
+        "speakers": null,
+        "contacts": null
+      },
+      {
+        "uId": "8ab5cc4d-6295-46fc-aa43-ac170103ea2w",
+        "eventId": 1,
+        "primaryTagId": 0,
+        "name": "Noleggiatore",
+        "legalName": "Societa' privata",
+        "vat": "BE09999999XX",
+        "country": "Italy",
+        "address1": "Via Ugo Bassi 3",
+        "address2": null,
+        "city":	"Bologna",
+        "province": "BO",
+        "postCode": "40130",
+        "companyMail":	"info@abarthcompany.com",
+        "phoneAreaCode": "+39",
+        "phoneNumber": "051234567",
+        "faxNumber":	null,
+        "url": "https://abarthcompany.com",
+        "facebookUrl":	null,
+        "instagramUrl":	null,
+        "linkedinUrl":	null,
+        "twitterUrl":	null,
+        "description": "Lorem ipsum dolor sit amet, consecteLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eratvolutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eroset accumsan et iusto odiodignissim qui blandit praesent",
+        "level": {
+          "uId": "a8d25b8e-ce06-427a-b055-ac170103ea2e",
+          "name": "Noleggiatore"
+        },
+        "logo": "turbo.jpg",
+        "event": null,
+        "tags": [
+          {
+            "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+            "parent": null,
+            "name": "Emilia Romagna",
+            "tagFamily": "Regioni italiane",
+            "image": "er.png",
+            "children": null
+          }
+        ],
+        "speakers": null,
+        "contacts": null
+      }
+    ],
+    "tags": [
+      {
+        "uId": "ad0d6acc-6b30-4c63-8c23-ac170103ea2d",
+        "parent": null,
+        "name": "Sicilia",
+        "tagFamily": "Regioni italiane",
+        "image": "siclia.png",
+        "children": [
+          {
+            "uId": "14527cba-0cc7-4b71-9690-ac170103ea2e",
+            "parent": null,
+            "name": "Palermo",
+            "tagFamily": "Citta'",
+            "image": "palermo.bmp",
+            "children": null
+          }
+        ]
+      },
+      {
+        "uId": "33e250a0-242b-498f-ad7d-ac170103ea2e",
+        "parent": null,
+        "name": "Emilia Romagna",
+        "tagFamily": "Regioni italiane",
+        "image": "er.png",
+        "children": [
+          {
+            "uId": "ff0649eb-9b02-42f8-b39c-ac170103ea2e",
+            "parent": null,
+            "name": "Bologna",
+            "tagFamily": "Citta'",
+            "image": "bologna.bmp",
+            "children": null
+          }
+        ]
+      }
+    ]
+  },
+  "resultCount": 1,
+  "totalCount": null,
+  "errors": [],
+  "warnings": [],
+  "informations": [],
+  "hasErrors": false,
+  "hasWarnings": false
+}

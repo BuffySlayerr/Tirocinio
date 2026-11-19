@@ -1,0 +1,44 @@
+{
+  "login": {
+    "LINKEDIN": "Sign in with Linkedin",
+    "NO_ACCOUNT": "Don't have an account?",
+    "SIGNUP": "SIGN UP NOW"
+  },
+  "signup": {
+    "FIRST_NAME": "First Name",
+    "HINT_FIRST_NAME": "First Name requires at least 2 characters",
+    "LAST_NAME": "Last Name",
+    "HINT_LAST_NAME": "Last Name requires at least 2 characters",
+    "HINT_EMAIL": "Email format is not valid",
+    "HINT_PASSWORD": "Please make sure your password match",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "COUNTRY": "Country",
+    "COMPANY": "Company",
+    "TITLE": "Title",
+    "TEXT": "Message"
+
+  },
+  "exhibitor": {
+    "HOME-COMPANY": "Company's Home",
+    "BROCHURES": "Brochures",
+    "PRODUCTS": "Products",
+    "VIDEOS": "Videos",
+    "CONTACTS": "Contact us",
+    "VIDEOCALL": "Videocall",
+    "RENTERS-MENU": "Renters"
+  },
+  "navbar": {
+    "EXHIBITORS": "Exhibitors",
+    "PROGRAM": "Program",
+    "CALENDAR": "My Calendar",
+    "LOGIN": "Log In",
+    "LOGOUT": "Log Out"
+  },
+  "common": {
+    "SIGNUP": "SIGN UP",
+    "SIGN_UP": "SIGN UP",
+    "LOG_IN": "LOG IN",
+    "SEND": "SEND",
+    "BACK": "Back"
+  }
+}

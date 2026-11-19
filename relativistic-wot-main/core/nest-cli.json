@@ -1,0 +1,9 @@
+{
+  "collection": "@nestjs/schematics",
+		"paths": {
+			"@shared/*": [
+				"./src/shared/*"
+			]
+		},
+  "sourceRoot": "src"
+}

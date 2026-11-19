@@ -1,0 +1,78 @@
+version: "3.9"
+services:
+  relativistic-core-staging:
+    build:
+      context:
+        core/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./core:/app
+      # - /app/node_modules/
+    image: lukesmolo/images:relativistic-core-staging
+    #container_name: relativistic-core-staging
+    depends_on:
+      - relativistic-thing-staging
+      - relativistic-room-staging
+        #links:
+        #- "relativistic-room:relativistic-room"
+    # extra_hosts:
+    #   - "relativistic-room:127.0.0.1"
+  relativistic-client-staging:
+    build:
+      context:
+        client/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./client:/app
+      # - /app/node_modules/
+    image: lukesmolo/images:relativistic-client-staging
+  relativistic-optmizer-staging:
+    build:
+      context:
+        optimizer/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./optimizer:/app
+    image: lukesmolo/images:relativistic-optimizer-staging
+    hostname: optimizer
+  relativistic-thing-staging:
+    build: 
+      context:
+        thing/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./thing:/app
+      - /app/node_modules/
+    image: lukesmolo/images:relativistic-thing-staging
+    hostname: relativistic-thing
+  relativistic-room-staging:
+    build: 
+      context:
+        room/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "8079:8079"
+    volumes:
+      - ./room:/app/room
+      - ./simulator:/app/simulator
+      - /app/room/node_modules/
+    image: lukesmolo/images:relativistic-room-staging
+    hostname: relativistic-room
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8079"]
+      interval: 30s
+      timeout: 10s
+      retries: 5

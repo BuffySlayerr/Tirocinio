@@ -1,0 +1,45 @@
+<div class="custom-list-div mt-3">
+  <div class="title text-center">{{ title ? title: 'DATI' }}</div>
+
+  <mat-form-field *ngIf="dataSource.data.length > 0" appearance="outline" class="form-input w-100">
+    <mat-label>Cerca</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Cerca" name="filter">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+
+  <table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z7 w-100">
+    <ng-container [matColumnDef]="columns.displayedColumns[i]" *ngFor="let col of columns.columnLabels; let i = index">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ col }}</th>
+      <td mat-cell *matCellDef="let element"> {{element[columns.displayedColumns[i]]}} </td>
+    </ng-container>
+    <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let element" [attr.colspan]="columns.displayedColumns.length">
+        <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+          <div class="buttons-container">
+            <button mat-button class="buttons" (click)="openDetail(element)">
+              <mat-icon svgIcon="pencil"></mat-icon>
+              MODIFICA
+            </button>
+            <button mat-button class="buttons delete-button">
+              <mat-icon svgIcon="trash-can"></mat-icon>
+              ELIMINA
+            </button>
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns.displayedColumns"></tr>
+    <tr mat-row *matRowDef="let element; columns: columns.displayedColumns;" class="pointer"
+      [class.example-expanded-row]="expandedElement === element"
+      (click)="expandedElement = expandedElement === element ? null : element">
+    </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+
+
+  <div class="no-elements w-100" *ngIf="dataSource.data.length === 0">NON CI SONO ANCORA ELEMENTI DA VISUALIZZARE</div>
+
+
+</div>

@@ -1,0 +1,44 @@
+{
+  "login": {
+    "LINKEDIN": "Accedi con LinkedIn",
+    "NO_ACCOUNT": "Non hai ancora un account?",
+    "SIGNUP": "REGISTRATI ORA"
+  },
+  "signup": {
+    "FIRST_NAME": "Nome",
+    "HINT_FIRST_NAME": "Il nome deve essere lungo almeno 2 caratteri",
+    "LAST_NAME": "Cognome",
+    "HINT_LAST_NAME": "Il cognome deve essere lungo almeno 2 caratteri",
+    "HINT_EMAIL": "Formato email non valido",
+    "HINT_PASSWORD": "Le password non coincidono",
+    "CONFIRM_PASSWORD": "Conferma Password",
+    "COUNTRY": "Stato",
+    "COMPANY": "Azienda",
+    "TITLE": "Titolo",
+    "TEXT": "Testo"
+  },
+  "navbar": {
+    "EXHIBITORS": "Espositori",
+    "PROGRAM": "Programma",
+    "CALENDAR": "Calendario",
+    "LOGIN": "Log In",
+    "LOGOUT": "Log Out"
+  },
+  "exhibitor": {
+    "HOME-COMPANY": "Home Azienda",
+    "BROCHURES": "Brochure",
+    "PRODUCTS": "Prodotti",
+    "VIDEOS": "Video",
+    "CONTACTS": "Contattaci ora",
+    "VIDEOCALL": "Prenota Video chiamata",
+    "RENTERS-MENU": "Noleggiatori"
+  },
+  "common": {
+    "SIGNUP": "REGISTRAZIONE",
+    "SIGN_UP": "REGISTRATI",
+    "LOGIN": "LOG IN",
+    "LOG_IN": "ACCEDI",
+    "SEND": "INVIA",
+    "BACK": "Indietro"
+  }
+}

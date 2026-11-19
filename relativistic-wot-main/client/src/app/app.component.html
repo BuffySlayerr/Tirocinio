@@ -1,0 +1,14 @@
+<mat-spinner *ngIf="showSpinner" style="position: absolute; left: 45%; top: 45%; color: #eb5757; z-index:2000" mode="indeterminate"></mat-spinner>
+<div *ngIf="isAuthenticated" class="example-sidenav-content h-100 right-container">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="!isAuthenticated" class="main-content background-primary">
+  <mat-drawer-container class="h-100 w-100 float-left" autosize [ngClass]="{opened: openedSidenav}">
+    <mat-drawer (closedStart)="openingSidenav(false)" (openedStart)="openingSidenav(true)" #drawer class="example-sidenav float-left left-container" mode="side">
+      <app-left-sidebar></app-left-sidebar>
+    </mat-drawer>
+    <div class="example-sidenav-content h-100 right-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>

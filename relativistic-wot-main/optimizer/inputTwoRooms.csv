@@ -1,0 +1,8 @@
+0,true,0
+10800,false,0,"{'cooler': 8, 'temperature': true}"
+14400,true,2
+18000,false,2,"{'temperature': false}"
+43200,false,4
+50400,false,0
+57600,false,8
+61200,false,0

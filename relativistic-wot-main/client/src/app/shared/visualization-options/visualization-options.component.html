@@ -1,0 +1,38 @@
+<div class="container-div">
+    <div class="row">
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="reloadGraph()">Reload graph</button>
+        </div>
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="reinitializeGraph()">Reset graph</button>
+        </div>
+        <div class="col-1">
+            <button mat-stroked-button color="primary" (click)="run()">{{ isRunning ? 'Stop Run' : 'Run' }}</button>
+        </div>
+        <div class="col-2">
+            <button mat-stroked-button color="primary" (click)="activateLiveReload()">{{ liveReload ? 'Stop live reload' : 'Activate live reload' }}</button>
+        </div>
+        <div class="col-2">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Update freq</mat-label>
+                <input matInput placeholder="frequency" [(ngModel)]="updateFrequency" (change)="changeUpdateFrequency()">
+              </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Nodes</mat-label>
+                <mat-select [formControl]="propertiesSelect" multiple (selectionChange)="selectChange('nodes')">
+                    <mat-option *ngFor="let property of propertyList" [value]="property">{{ property }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Edges</mat-label>
+                <mat-select [formControl]="actionsSelect" multiple (selectionChange)="selectChange('edges')">
+                    <mat-option *ngFor="let action of actionList" [value]="action">{{ action }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+@import './variables.scss';
+.logo {
+    width: 80%;
+    height: auto;
+}
+
+.logo-div {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    margin-top: 20%;
+    color: white;
+}
+
+.item {
+    text-align: left;
+    padding: 10px;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+
+.icon-div {
+    width: 10%;
+    margin-right: 10%;
+    float: left;
+}
+
+.item-div {
+    width: 80%;
+    float: right;
+}
+
+.logout-item {
+    position: absolute;
+    bottom: 0px;
+}
+
+.selected-link {
+    color: $orange;
+    background: rgba(247, 178, 63, 0.3)
+}
+

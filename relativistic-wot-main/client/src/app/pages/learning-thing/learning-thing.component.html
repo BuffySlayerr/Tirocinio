@@ -1,0 +1,108 @@
+<div class="row no-margin h-100 main-container">
+    <!-- <div class="col-12 row no-margin visualization-options-div">
+        <app-visualization-options (liveReloadEvent)="liveReload($event)" class="w-100 h-100"></app-visualization-options>
+    </div> -->
+    <div class="col-12 row no-margin form-div mt-3">
+        <div class="form-container">
+            <div class="title text-center">Simulation parameters</div>
+            <form name="simulationForm" (ngSubmit)="submit(false)" #f="ngForm" novalidate>
+
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Measurement interval*</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="measurementInterval"
+                        [formControl]="settingsControl.measurementInterval">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Max timestamp*</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="maxTimestamp"
+                        [formControl]="settingsControl.maxTimestamp">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha1</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha1"
+                        [formControl]="settingsControl.alpha1">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha2</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha2"
+                        [formControl]="settingsControl.alpha2">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha3</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha3"
+                        [formControl]="settingsControl.alpha3">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha4</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha4"
+                        [formControl]="settingsControl.alpha4">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha5</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha5"
+                        [formControl]="settingsControl.alpha5">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha6</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha6"
+                        [formControl]="settingsControl.alpha6">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha7</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha7"
+                        [formControl]="settingsControl.alpha7">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha8</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha8"
+                        [formControl]="settingsControl.alpha8">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>Alpha9</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="alpha9"
+                        [formControl]="settingsControl.alpha9">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>SigmaTemp</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="sigmaTemp"
+                        [formControl]="settingsControl.sigmaTemp">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>SigmaTempOut</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="sigmaTempOut"
+                        [formControl]="settingsControl.sigmaTempOut">
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="form-input">
+                    <mat-label>tempOutDelta</mat-label>
+                    <input matInput placeholder="" [formGroup]="simulationForm" name="tempOutDelta"
+                        [formControl]="settingsControl.tempOutDelta">
+                </mat-form-field>
+                <!-- <input [formGroup]="simulationForm" type="file" class="upload" name="file"> -->
+                <!-- <mat-form-field>
+                        <ngx-mat-file-input [formGroup]="simulationForm"[formControl]="settingsControl.file" (change)="uploadCSV($event.target.files)">
+                        </ngx-mat-file-input>
+                      </mat-form-field> -->
+                <mat-form-field>
+                    <ngx-mat-file-input [formControl]="settingsControl.file" accept=".csv" (change)="uploadCSV()">
+                    </ngx-mat-file-input>
+                </mat-form-field>
+                <button mat-raised-button color="primary" type="submit" class="float-right ml-3"
+                    [disabled]="!simulationForm.valid">Launch simulation</button>
+                <button mat-raised-button color="success" type="button" (click)="submit(true)" class="float-right ml-3"
+                    [disabled]="!simulationForm.valid">Get CSV</button>
+                <button mat-raised-button color="error" type="button" class="float-right"
+                    (click)="resetForm()">Reset</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-12 row no-margin chart-div">
+        <div class="col-12">
+            <div echarts [options]="options" class="demo-chart h-100" class="chart"></div>
+        </div>
+        <!-- <div class="col-6">
+            <div echarts [options]="options1" class="demo-chart" class="chart"></div>
+        </div> -->
+    </div>
+</div>

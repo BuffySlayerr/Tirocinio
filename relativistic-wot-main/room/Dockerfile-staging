@@ -1,0 +1,18 @@
+FROM node:14.15.0-alpine3.11 as BUILD
+# RUN mkdir -p /app/room
+# RUN mkdir -p /app/simulator
+WORKDIR /app/room
+# COPY ./simulator/* /app/simulator/
+# RUN cd /app/simulator; npm install; npm run build
+COPY package.json $WORKDIR
+#COPY package-lock.json $WORKDIR
+
+RUN npm install
+COPY . $WORKDIR
+
+EXPOSE 8079
+
+RUN npm run build
+CMD ["npm", "run", "start:dev"]
+
+

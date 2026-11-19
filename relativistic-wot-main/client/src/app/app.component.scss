@@ -1,0 +1,95 @@
+@import './variables.scss';
+
+
+
+.main-navbar {
+  height: 7%;
+  position: relative;
+  box-shadow: -5px -5px 6px -7px rgba(0,0,0,0.79), 5px 5px 6px -7px rgba(0,0,0,0.79);
+  border-bottom: 1px solid black;
+}
+
+.main-content {
+  height: 100%;
+}
+
+
+.right-sidebar {
+  width: $right-sidebar-width;
+  height: 93%;
+  transition: all .3s ease;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  background: white;
+  transform: translateX($page-width);
+}
+
+.show-right-sidebar {
+  transform: translateX(calc(#{$page-width} - #{$right-sidebar-width}));
+  display: flex;
+  transition: all .3s ease;
+  position: absolute;
+  right: 0;
+}
+
+mat-drawer {
+  background: $grey;
+  width: $left-sidebar-width;
+}
+
+:host ::ng-deep
+mat-drawer:not(.mat-drawer-opened) {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  width: $left-sidenav-min-width !important;
+  overflow: hidden;
+}
+
+:host ::ng-deep
+mat-drawer:not(.mat-drawer-opened) .item-div {
+    display: none;
+}
+
+:host ::ng-deep
+mat-drawer:not(.mat-drawer-opened) .selected-link {
+    color: $orange;
+    background: none; 
+}
+
+
+
+.left-container {
+  min-width: $left-sidenav-min-width;
+}
+
+.right-container {
+  width: calc(#{$page-width} - #{left-sidenav-min-width});
+}
+
+
+:host ::ng-deep
+mat-drawer-content {
+  padding-left: 60px;
+}
+
+:host ::ng-deep
+mat-drawer-container.opened .mat-drawer-content {
+  padding-left: 0px;
+}
+
+.spinner {
+  position: absolute;
+  left: 45%;
+  top: 45%;
+  z-index: 200;
+}
+
+.spinner .spinner-border {
+  color: $spinner-color;
+  width: 100px;
+  height: 100px;
+}
+
+
+

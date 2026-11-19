@@ -1,0 +1,26 @@
+<div class="h-100 w-100 login-container">
+    <div class="card align-items-sm-center login-card">
+        <div class="title text-center mt-3 mb-3">
+          LOGIN
+        </div>
+        <form name="loginForm" (ngSubmit)="f.form.valid && login()" #f="ngForm"
+          class="login-form mt-1" novalidate>
+          <mat-form-field class="form-input" appearance="outline">
+            <input matInput type="text" placeholder="Email" name="email" [formGroup]="loginForm" name="email" [formControl]="settingsControl.email"/>
+          </mat-form-field>
+          <br />
+          <mat-form-field class="form-input" appearance="outline">
+            <input id="mysecretpassword" showHideInput matInput type="password"
+              placeholder="Password" name="password" [formGroup]="loginForm" name="password"
+                [formControl]="settingsControl.password"/>
+            <!-- <i matSuffix class="material-icons eye" showHideTrigger="mysecretpassword"
+              [showHideStatus]="{ materialIcon: true, id: 'mysecretpassword' }"></i> -->
+          </mat-form-field>
+          <div class="text-center">
+            <button mat-flat-button color="primary" >
+              LOGIN
+            </button>
+          </div>
+        </form>
+      </div>
+</div>

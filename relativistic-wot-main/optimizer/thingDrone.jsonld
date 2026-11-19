@@ -1,0 +1,529 @@
+{
+  "title": "RelativisticDrone",
+  "description": "A simple drone thing",
+  "properties": {
+    "timestamp": {
+      "type": "number",
+      "description": "Current time for the drone",
+      "observable": true,
+      "readOnly": true,
+      "writeOnly": false
+    },
+    "positionX": {
+      "type": "number",
+      "description": "Current x-position of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "modelInput": [
+        {
+          "title": "vX",
+          "propertyName": "velocityX",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = input(vX)"
+    },
+    "velocityX": {
+      "type": "number",
+      "description": "Current x-velocity of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "yaw",
+          "propertyName": "yaw",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "yawrate",
+          "propertyName": "yawrate",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbX",
+          "propertyName": "velocitybodyX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbY",
+          "propertyName": "velocitybodyY",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "abX",
+          "propertyName": "accelerationbodyX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "abY",
+          "propertyName": "accelerationbodyY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = math.cos(input(yaw)) * input(abX) - math.sin(input(yaw)) * input(abY) - input(yawrate) * (math.sin(input(yaw)) * input(vbX) + math.cos(input(yaw)) * input(vbY))"
+    },
+    "velocitybodyX": {
+      "type": "number",
+      "description": "Current x-velocity of the drone in its body reference frame",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "yaw",
+          "propertyName": "yaw",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vX",
+          "propertyName": "velocityX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vY",
+          "propertyName": "velocityY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "self = math.cos(input(yaw)) * input(vX) + math.sin(input(yaw)) * input(vY)"
+    },
+    "accelerationbodyX": {
+      "type": "number",
+      "description": "Current x-acceleration of the drone in its body reference frame",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "elevator",
+          "propertyName": "elevator",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbX",
+          "propertyName": "velocitybodyX",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "self = params[0] * (params[1] * input(elevator) - input(vbX)) | params[0] >= 0.0, params[1] >= 0.0 | params[0] = 1.0, params[1] = 0.05"
+    },
+    "positionY": {
+      "type": "number",
+      "description": "Current y-position of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "modelInput": [
+        {
+          "title": "vY",
+          "propertyName": "velocityY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = input(vY)"
+    },
+    "velocityY": {
+      "type": "number",
+      "description": "Current y-velocity of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "yaw",
+          "propertyName": "yaw",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "yawrate",
+          "propertyName": "yawrate",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbX",
+          "propertyName": "velocitybodyX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbY",
+          "propertyName": "velocitybodyY",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "abX",
+          "propertyName": "accelerationbodyX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "abY",
+          "propertyName": "accelerationbodyY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = math.sin(input(yaw)) * input(abX) + math.cos(input(yaw)) * input(abY) + input(yawrate) * (math.cos(input(yaw)) * input(vbX) - math.sin(input(yaw)) * input(vbY))"
+    },
+    "velocitybodyY": {
+      "type": "number",
+      "description": "Current y-velocity of the drone in its body reference frame",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "yaw",
+          "propertyName": "yaw",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vX",
+          "propertyName": "velocityX",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vY",
+          "propertyName": "velocityY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "self = - math.sin(input(yaw)) * input(vX) + math.cos(input(yaw)) * input(vY)"
+    },
+    "accelerationbodyY": {
+      "type": "number",
+      "description": "Current y-acceleration of the drone in its body reference frame",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "aileron",
+          "propertyName": "aileron",
+          "type": "number",
+          "model": "self"
+        },
+        {
+          "title": "vbY",
+          "propertyName": "velocitybodyY",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "self = params[0] * (params[1] * input(aileron) - input(vbY)) | params[0] >= 0.0, params[1] >= 0.0 | params[0] = 1.0, params[1] = 0.05"
+    },
+    "positionZ": {
+      "type": "number",
+      "description": "Current z-position of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "modelInput": [
+        {
+          "title": "vZ",
+          "propertyName": "velocityZ",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = input(vZ)"
+    },
+    "velocityZ": {
+      "type": "number",
+      "description": "Current z-velocity of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "throttle",
+          "propertyName": "throttle",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = params[0] * (params[1] * input(throttle) - self) | params[0] >= 0.0, params[1] >= 0.0 | params[0] = 2.5, params[1] = 0.03"
+    },
+    "yaw": {
+      "type": "number",
+      "description": "Current yaw angle of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "yawrate",
+          "propertyName": "yawrate",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = input(yawrate)"
+    },
+    "yawrate": {
+      "type": "number",
+      "description": "Current yaw rate (angular velocity around the z-axis) of the drone",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "rudder",
+          "propertyName": "rudder",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = params[0] * (params[1] * input(rudder) - self) | params[0] >= 0.0, params[1] >= 0.0 | params[0] = 1.0, params[1] = 0.01"
+    },
+    "throttle": {
+      "type": "number",
+      "description": "Current throttle input (percent)",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "model": "self = 0.01 * value()"
+    },
+    "rudder": {
+      "type": "number",
+      "description": "Current rudder input (percent)",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "model": "self = 0.01 * value()"
+    },
+    "elevator": {
+      "type": "number",
+      "description": "Current elevator input (percent)",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "model": "self = 0.01 * value()"
+    },
+    "aileron": {
+      "type": "number",
+      "description": "Current aileron input (percent)",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "model": "self = 0.01 * value()"
+    }
+  },
+  "actions": {
+    "toggleHeater": {
+      "description": "Turn on/off the heater",
+      "input": { "type": "boolean" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticdrone/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticdrone/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticdrone/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "toggleCooler": {
+      "description": "Turn on/off the cooler",
+      "input": { "type": "boolean" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticdrone/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticdrone/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticdrone/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "reset": {
+      "description": "Reset the room",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticdrone/actions/reset",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/actions/reset",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticdrone/actions/reset",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticdrone/actions/reset",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "setSimParameters": {
+      "description": "Set the parameters for the simulator of the room",
+      "input": { "type": "object" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticdrone/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticdrone/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticdrone/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "moveToTime": {
+      "description": "Move the time forward",
+      "input": { "type": "number" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticdrone/actions/moveToTime",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/actions/moveToTime",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticdrone/actions/moveToTime",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticdrone/actions/moveToTime",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    }
+  },
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type": "Thing",
+  "security": ["nosec_sc"],
+  "id": "urn:uuid:ccabeb09-f4de-4770-a59f-19b79382ee6b",
+  "forms": [
+    {
+      "href": "http://192.168.1.110:8079/relativisticdrone/all/properties",
+      "contentType": "application/json",
+      "op": ["readallproperties", "readmultipleproperties"]
+    },
+    {
+      "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticdrone/all/properties",
+      "contentType": "application/json",
+      "op": ["readallproperties", "readmultipleproperties"]
+    }
+  ],
+  "securityDefinitions": { "nosec_sc": { "scheme": "nosec" } }
+}

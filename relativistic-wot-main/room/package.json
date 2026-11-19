@@ -1,0 +1,29 @@
+{
+  "name": "Room",
+  "version": "1.0.0",
+  "description": "A simple room",
+  "main": "thing.js",
+  "scripts": {
+    "build": "wam build --typescript ./src/thing.ts ./dist/bundle.js",
+    "debug": "wot-servient --inspect-brk -f servient.config.json ./dist/bundle.js",
+    "start": "wot-servient -f servient.config.json ./dist/bundle.js",
+    "start:dev": "nodemon -w \"src/**\" --ext \"ts,json\" --exec \"npm run build && npm run start\""
+  },
+  "keywords": [
+    ""
+  ],
+  "author": "lukesmolo",
+  "license": "MIT",
+  "devDependencies": {
+    "@arces-wot/wam": "^0.5.2",
+    "@node-wot/cli": "^0.7.0",
+    "@rollup/plugin-typescript": "^2.0.1",
+    "nodemon": "^2.0.14",
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {
+    "@node-wot/core": "^0.7.0",
+    "simulator": "file:../simulator/",
+    "tsc": "^2.0.3"
+  }
+}

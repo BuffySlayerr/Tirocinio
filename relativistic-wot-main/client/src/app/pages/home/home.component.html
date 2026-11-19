@@ -1,0 +1,13 @@
+<div class="row no-margin h-100 main-container">
+    <div class="col-12 row no-margin visualization-options-div">
+        <app-visualization-options (liveReloadEvent)="liveReload($event)" class="w-100 h-100"></app-visualization-options>
+    </div>
+    <div class="col-12 row no-margin h-100">
+        <div class="col-12 h-100">
+            <div echarts [options]="options" class="demo-chart h-100" class="chart"></div>
+        </div>
+        <!-- <div class="col-6">
+            <div echarts [options]="options1" class="demo-chart" class="chart"></div>
+        </div> -->
+    </div>
+</div>

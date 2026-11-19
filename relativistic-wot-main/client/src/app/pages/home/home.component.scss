@@ -1,0 +1,75 @@
+@import './variables.scss';
+
+.containers {
+    height: 90%;
+}
+
+.main-container {
+    // padding: 15px;
+}
+
+
+
+.title-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 15%;
+    float: left;
+}
+
+.title {
+    color: $orange;
+    font-size: 25px;
+    font-weight: bold;
+    height: 85%;
+    width: 100%;
+    line-height: 30px;
+}
+
+.title mat-icon {
+    width: 50px;
+    height: auto;
+}
+
+.contents {
+    width: 85%;
+    height: 100%;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.element-container {
+    width: 12%;
+    height: 85%;
+    float: left;
+    margin-right: 25px;
+    text-align: center;
+}
+
+.counter {
+    color: #6fcf97;
+    height: 70%;
+    font-size: 80px;
+    padding-top: 10px;
+    font-weight: bold;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	font-size: 70px;
+}
+
+.description {
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.chart {
+    width: 100%;
+    height: 100%;
+}
+
+.visualization-options-div {
+    height: 10%;
+}

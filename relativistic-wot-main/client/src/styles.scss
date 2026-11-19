@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables.scss';
+
+html, body { height: 100%; width: 100%; overflow-x: hidden; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-muted {
+  color: red !important;
+}
+
+button:disabled {
+  cursor: none;
+}
+
+.back-button i {
+  top: 6px;
+  position: relative;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-margin {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.snackbar-error {
+  background:#dc3545 !important;
+}
+
+.snackbar-error-modal {
+  background:#dc3545 !important;
+  color: white;
+  z-index: 2051;
+}
+
+.snackbar-success {
+  background: $grey;
+  color: white;
+}
+
+.snackbar-success-modal {
+  background: $grey;
+  color: white;
+  z-index: 2051;
+}
+
+.snackbar-info{
+  color: white;
+}
+
+
+div.mat-tab-body-wrapper {
+  height: 100%;
+}

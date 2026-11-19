@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.title {
+    color: $orange;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.client-custom-div {
+    height: 350px;
+    margin-top: 20px;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+tr.example-detail-row {
+    height: 0;
+}
+
+.buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttons mat-icon {
+    position: relative;
+    top: -6px;
+}
+
+.delete-button {
+    color: $red;
+}
+
+.no-elements {
+    align-self: center;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40%;
+    text-align: center;
+}

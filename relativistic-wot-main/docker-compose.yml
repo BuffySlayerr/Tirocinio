@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  relativistic-core:
+    build: core/.
+    ports:
+      - "3000:3000"
+    depends_on:
+      - relativistic-room
+        #links:
+        #- "relativistic-room:relativistic-room"
+  relativistic-client:
+    build: client/.
+    ports:
+      - "4200:80"
+  relativistic-room:
+    build: room/.
+    ports:
+      - "8079:8079"
+  relativistic-optimizer:
+    build:
+      context:
+        optimizer/.
+      dockerfile:
+        Dockerfile-staging
+    ports:
+      - "5000:5000"
+    # image: lukesmolo/images:relativistic-optimizer
+    hostname: optimizer
+  relativistic-thing:
+    build: 
+      context:
+        thing/.
+      dockerfile:
+        Dockerfile
+    ports:
+      - "8080:8080"
+    # image: lukesmolo/images:relativistic-thing
+    hostname: relativistic-thing

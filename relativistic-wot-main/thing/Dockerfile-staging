@@ -1,0 +1,9 @@
+FROM node:12.16.1-alpine3.11 as BUILD
+
+WORKDIR /app
+COPY package.json $WORKDIR
+RUN npm install
+
+COPY . $WORKDIR
+
+CMD ["npm", "run", "start:dev"]

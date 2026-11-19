@@ -1,0 +1,486 @@
+{
+  "title": "RelativisticRoom",
+  "description": "A simple room with a heater and a cooler",
+  "properties": {
+    "time": {
+      "type": "number",
+      "description": "Current time for the room",
+      "observable": true,
+      "readOnly": true,
+      "writeOnly": false,
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/time",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/time/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/time",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/time/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/time",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/time",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    },
+    "temperature": {
+      "type": "number",
+      "description": "Current temperature in the room",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "modelInput": [
+        {
+          "title": "heaterPower",
+          "propertyName": "heater",
+          "type": "number",
+          "model": "params[0] * self | params[0] >= 0.0 | params[0] = 1.0",
+          "modelType": "@heatPower"
+        },
+        {
+          "title": "coolerPower",
+          "propertyName": "cooler",
+          "type": "number",
+          "model": "-self",
+          "modelType": "@heatPower"
+        },
+        {
+          "title": "temp1",
+          "propertyName": "temperature1",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = params[0] * (params[1] * (global[2] - self) + sum(inputType(@heatPower)) + global[3] * (input(temp1) - self)) | params[0] >= 0.0, params[1] >= 0.0, global[3] >= 0.0 | params[0] = 0.001, params[1] = 0.1, global[2] = 15.0, global[3] = 0.1",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/temperature{?time}",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/temperature/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/temperature{?time}",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/temperature/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/temperature",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/temperature",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    },
+    "temperature1": {
+      "type": "number",
+      "description": "Current temperature in the room",
+      "observable": true,
+      "readOnly": true,
+      "uriVariables": { "time": { "type": "number" } },
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "modelInput": [
+        {
+          "title": "heaterPower",
+          "propertyName": "heater",
+          "type": "number",
+          "model": "params[0] * self | params[0] >= 0.0 | params[0] = 0.5",
+          "modelType": "@heatPower"
+        },
+        {
+          "title": "temp",
+          "propertyName": "temperature",
+          "type": "number",
+          "model": "self"
+        }
+      ],
+      "model": "dot(self) = params[0] * (params[1] * (global[2] - self) + sum(inputType(@heatPower)) + global[3] * (input(temp) - self)) | params[0] >= 0.0, params[1] >= 0.0 | params[0] = 0.002, params[1] = 0.1",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/temperature{?time}",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/temperature/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/temperature{?time}",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/temperature/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/temperature",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/temperature",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    },
+    "heater": {
+      "type": "boolean",
+      "description": "Current status of the heater",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "readProperty",
+      "model": "self = value()",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/heater",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/heater/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/heater",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/heater/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/heater",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/heater",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    },
+    "cooler": {
+      "type": "number",
+      "description": "Current status of the cooler",
+      "observable": true,
+      "readOnly": false,
+      "writeOnly": false,
+      "valueFrom": "model",
+      "modelInput": [
+        {
+          "title": "coolerSetpoint",
+          "type": "number",
+          "model": "max(0, min(round(value()), 9))"
+        }
+      ],
+      "model": "dot(self) = params[0] * (params[1] * input(coolerSetpoint) - self) | params[0] >= 0.0, params[1] >= 0.0 | params[1] = 0.1, params[0] = 0.1",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/cooler",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/cooler/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/cooler",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/cooler/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/cooler",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/cooler",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    },
+    "simParameters": {
+      "description": "Parameters for the simulator of the room",
+      "type": "object",
+      "observable": true,
+      "readOnly": true,
+      "writeOnly": false,
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/simParameters",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/properties/simParameters/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/simParameters",
+          "contentType": "application/json",
+          "op": ["readproperty"],
+          "htv:methodName": "GET"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/properties/simParameters/observable",
+          "contentType": "application/json",
+          "op": ["observeproperty", "unobserveproperty"],
+          "subprotocol": "longpoll"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/properties/simParameters",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/properties/simParameters",
+          "contentType": "application/json",
+          "op": ["readproperty", "observeproperty", "unobserveproperty"]
+        }
+      ]
+    }
+  },
+  "actions": {
+    "toggleHeater": {
+      "description": "Turn on/off the heater",
+      "input": { "type": "boolean" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/actions/toggleHeater",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "toggleCooler": {
+      "description": "Turn on/off the cooler",
+      "input": { "type": "boolean" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/actions/toggleCooler",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "reset": {
+      "description": "Reset the room",
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/actions/reset",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/actions/reset",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/actions/reset",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/actions/reset",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "setSimParameters": {
+      "description": "Set the parameters for the simulator of the room",
+      "input": { "type": "object" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/actions/setSimParameters",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    },
+    "moveToTime": {
+      "description": "Move the time forward",
+      "input": { "type": "number" },
+      "forms": [
+        {
+          "href": "http://192.168.1.110:8079/relativisticroom/actions/moveToTime",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/actions/moveToTime",
+          "contentType": "application/json",
+          "op": ["invokeaction"],
+          "htv:methodName": "POST"
+        },
+        {
+          "href": "coap://192.168.1.110:5683/relativisticroom/actions/moveToTime",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        },
+        {
+          "href": "coap://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:5683/relativisticroom/actions/moveToTime",
+          "contentType": "application/json",
+          "op": "invokeaction"
+        }
+      ],
+      "idempotent": false,
+      "safe": false
+    }
+  },
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type": "Thing",
+  "security": ["nosec_sc"],
+  "id": "urn:uuid:ccabeb09-f4de-4770-a59f-19b79382ee6b",
+  "forms": [
+    {
+      "href": "http://192.168.1.110:8079/relativisticroom/all/properties",
+      "contentType": "application/json",
+      "op": ["readallproperties", "readmultipleproperties"]
+    },
+    {
+      "href": "http://[2001:b07:5d2e:6af2:f29e:4aff:fe8c:a366]:8079/relativisticroom/all/properties",
+      "contentType": "application/json",
+      "op": ["readallproperties", "readmultipleproperties"]
+    }
+  ],
+  "securityDefinitions": { "nosec_sc": { "scheme": "nosec" } }
+}

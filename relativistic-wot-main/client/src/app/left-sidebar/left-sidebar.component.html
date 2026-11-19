@@ -1,0 +1,48 @@
+<div class="logo-div">
+  <!-- <img class="logo" src="assets/imgs/logo.png" alt=""> -->
+  <img class="logo" src="/imgs/logo.png" alt="">
+</div>
+
+<div class="menu">
+  <mat-list>
+    <div mat-list-item>
+      <div class="pointer item" [routerLink]="['home']" [ngClass]="{'selected-link': currentLink === 'home'}"
+        matTooltip="Home" matTooltipPosition="right">
+        <div class="icon-div">
+          <mat-icon svgIcon="home"></mat-icon>
+        </div>
+        <div class="item-div">Homepage</div>
+      </div>
+    </div>
+  </mat-list>
+  <mat-list>
+    <div mat-list-item>
+      <div class="pointer item" [routerLink]="['mdp-twin']" [ngClass]="{'selected-link': currentLink === 'mdp-twin'}"
+        matTooltip="MDP Twin" matTooltipPosition="right">
+        <div class="icon-div">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">content_copy</mat-icon>
+        </div>
+        <div class="item-div">MdpTwin</div>
+      </div>
+    </div>
+  </mat-list>
+  <mat-list>
+    <div mat-list-item>
+      <div class="pointer item" [routerLink]="['learning-thing']" [ngClass]="{'selected-link': currentLink === 'learning-thing'}"
+        matTooltip="Learning Thing" matTooltipPosition="right">
+        <div class="icon-div">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">content_copy</mat-icon>
+        </div>
+        <div class="item-div">LearningThing</div>
+      </div>
+    </div>
+  </mat-list>
+  <mat-list class="w-100 logout-item" (click)="logout()">
+    <div class="pointer item" matTooltip="Logout" matTooltipPosition="right">
+      <div class="icon-div">
+        <mat-icon svgIcon="logout"></mat-icon>
+      </div>
+      <div class="item-div">Logout</div>
+    </div>
+  </mat-list>
+</div>
